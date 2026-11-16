@@ -1,0 +1,20 @@
+[package]
+name = "formcraft-cli"
+description = "Validate, preview, fill and export FormCraft forms from the command line"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+repository.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+formcraft-form.workspace = true
+formcraft-logic.workspace = true
+formcraft-fig.workspace = true
+clap.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
