@@ -17,6 +17,10 @@ The repository is an early scaffold. It is built to the conventions of the Craft
   required overrides, page jumps. Later rules win.
 - `crates/fig` holds the FigCraft binding: a sidecar document mapping design nodes to fields,
   pages and controls, with suggestions from layer names like `field:email`.
+- `crates/state` is the headless form state, in the shape of TanStack Form: field values
+  and meta (errors, touched, dirty, validating), the change/blur/submit lifecycle with
+  sync checks before async ones, sequence-guarded async checks and logic-driven
+  revalidation across fields.
 - `apps/formcraft-cli` validates, previews, fills and exports forms.
 
 ## A form, filled

@@ -75,6 +75,9 @@ Repos don't share code.
   page jumps. Later rules win; unanswered comparisons are false.
 - `crates/fig` holds the FigCraft binding sidecar and the layer-name suggestions. It reads an
   exported node listing until the craft-libs design crates are adopted.
+- `crates/state` is the headless form state (the TanStack Form shape): values plus meta,
+  the change/blur/submit lifecycle, sync before async, sequence-guarded async checks. It
+  holds no clock and does no IO; renderers drive it.
 - `apps/formcraft-cli` owns the file IO: validate, preview, fill, fig-suggest, export.
 - `xtask` is the gate: `cargo xtask ci` runs the format check, clippy with warnings denied,
   the tests and the asset attribution check.

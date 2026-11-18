@@ -1,0 +1,18 @@
+[package]
+name = "formcraft-state"
+description = "Headless form state: field values and meta, the validation lifecycle, async checks and logic-driven revalidation"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+repository.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+formcraft-form.workspace = true
+formcraft-logic.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true

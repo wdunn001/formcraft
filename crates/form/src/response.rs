@@ -107,6 +107,23 @@ fn check_field_answer(field: &Field, answer: Option<&Value>, overlay: &Overlay, 
     }
 }
 
+/// Checks one field's answer alone: shape issues, and the missing-required issue when
+/// `required` holds. [`check_response`] reports the same issues across a whole form; this
+/// is the per-field half a live form state re-runs as someone types.
+pub fn check_answer(field: &Field, answer: Option<&Value>, required: bool) -> Vec<Issue> {
+    let mut issues = Vec::new();
+    let answer = answer.filter(|value| !value.is_null()).filter(|value| !is_empty_answer(&field.kind, value));
+    match answer {
+        None => {
+            if required {
+                issues.push(Issue::MissingRequired(field.id.clone()));
+            }
+        }
+        Some(value) => check_kind(field, value, &mut issues),
+    }
+    issues
+}
+
 fn is_empty_answer(kind: &FieldKind, value: &Value) -> bool {
     match kind {
         FieldKind::Text { .. } | FieldKind::Email | FieldKind::Date => value.as_str().is_some_and(str::is_empty),

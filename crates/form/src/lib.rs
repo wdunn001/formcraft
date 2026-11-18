@@ -7,7 +7,7 @@
 mod response;
 mod validate;
 
-pub use response::{Issue, Overlay, Response, check_response};
+pub use response::{Issue, Overlay, Response, check_answer, check_response};
 pub use validate::{ValidateError, validate};
 
 use serde::{Deserialize, Serialize};
